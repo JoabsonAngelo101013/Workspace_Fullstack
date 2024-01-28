@@ -1,6 +1,5 @@
-const cpf = 123456789;
-
-var nome = "Joabson";
+var cpf = 1234567789
+const nome = "Joabson";
 
 function sobreNome(){
     let sobreNome = "Angelo";
