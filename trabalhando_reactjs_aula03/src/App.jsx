@@ -1,5 +1,4 @@
-
-import PrecisoEstudar from "./components/PrecisoEstudar"
+import QuilometrosParaMilhas from "./components/QuilometrosParaMilhas"
 
 
 
@@ -9,7 +8,7 @@ function App() {
   
   return (
     <>
-  <PrecisoEstudar tecnologia={"java"} />
+  <QuilometrosParaMilhas/>
     </>
   )
 }

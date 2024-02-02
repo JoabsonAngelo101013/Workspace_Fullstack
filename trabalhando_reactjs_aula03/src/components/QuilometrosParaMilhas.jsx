@@ -15,11 +15,13 @@ const QuilometrosParaMilhas = () => {
   return (
     <div>
 
-        <h1>Converter Distâncias Km / M</h1>
+        <h1>Converter Distâncias Km / Milhas</h1>
 
         <label>
-            <input type="number"
-            value={quilometros} 
+            <input 
+            type="number"
+            value={quilometros}
+            onChange={(e) => setQuilometros(e.target.value)}
             />
         </label>
 
