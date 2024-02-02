@@ -1,16 +1,17 @@
 
-import FahrenheitParaCelcius from "./components/FahrenheitParaCelcius"
+import PrecisoEstudar from "./components/PrecisoEstudar"
+
 
 
 
 function App() {
-
-
+const tecnologia = "Java, Spring";
+  
   return (
     <>
-  <FahrenheitParaCelcius/>
+  <PrecisoEstudar tecnologia/>
     </>
   )
 }
 
-export default App
+export default App 
