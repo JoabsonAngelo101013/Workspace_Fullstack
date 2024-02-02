@@ -1,5 +1,6 @@
-import  react from 'react'
-import Exercicio02Campanha from './Components/Exercicio02Campanha'
+import HookContador from "./Components/HookContador"
+
+
 
 const App=() => {
  
@@ -8,7 +9,7 @@ const App=() => {
   
     <div> 
 
-      <Exercicio02Campanha />
+      <HookContador />
       
       </div>
     
