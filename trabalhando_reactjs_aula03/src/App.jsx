@@ -1,4 +1,5 @@
-import QuilometrosParaMilhas from "./components/QuilometrosParaMilhas"
+import CelciusParaFahrenheit from "./components/CelciusParaFahrenheit"
+
 
 
 
@@ -8,7 +9,7 @@ function App() {
   
   return (
     <>
-  <QuilometrosParaMilhas/>
+  <CelciusParaFahrenheit />
     </>
   )
 }
