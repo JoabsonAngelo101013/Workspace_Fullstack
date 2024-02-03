@@ -1,7 +1,4 @@
-import CelciusParaFahrenheit from "./components/CelciusParaFahrenheit"
-
-
-
+import FahrenheitParaCelcius from "./components/FahrenheitParaCelcius"
 
 
 function App() {
@@ -9,7 +6,7 @@ function App() {
   
   return (
     <>
-  <CelciusParaFahrenheit />
+  <FahrenheitParaCelcius/>
     </>
   )
 }
