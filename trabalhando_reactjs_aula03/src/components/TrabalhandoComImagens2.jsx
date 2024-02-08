@@ -9,15 +9,18 @@ const TrabalhandoComImagens2 = () => {
 
             return <img src="React.jpeg" alt="react" width= '320px' />
 
-        } else  {
+        } else if ("assets"){
 
             return <img src={Reactlogo} alt="java" />
         }
        
     }
   return (
+    
     <div>
-        {imagem("")}
+        <h1>Necessario digitar um valor no retorno imagem("")</h1>
+
+        {imagem("public")}
 
     </div>
   )
