@@ -1,4 +1,4 @@
-import RenderizandoComFuncoes from "./components/RenderizandoComFuncoes"
+import TrabalhandoComImagens2 from "./components/TrabalhandoComImagens2"
 
 
 function App() {
@@ -6,7 +6,7 @@ function App() {
   
   return (
     <>
-  <RenderizandoComFuncoes/>
+  <TrabalhandoComImagens2/>
     </>
   )
 }
