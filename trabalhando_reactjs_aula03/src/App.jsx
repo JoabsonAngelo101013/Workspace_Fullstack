@@ -1,4 +1,4 @@
-import FahrenheitParaCelcius from "./components/FahrenheitParaCelcius"
+import RenderizandoComFuncoes from "./components/RenderizandoComFuncoes"
 
 
 function App() {
@@ -6,7 +6,7 @@ function App() {
   
   return (
     <>
-  <FahrenheitParaCelcius/>
+  <RenderizandoComFuncoes/>
     </>
   )
 }
