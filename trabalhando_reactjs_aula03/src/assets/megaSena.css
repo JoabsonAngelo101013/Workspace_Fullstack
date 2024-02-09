@@ -1,0 +1,43 @@
+*{
+    margin: 0;
+    padding: 0;
+ 
+}
+
+div {
+    background-image: url('./img/OIP.jpeg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  
+  }
+
+h1{
+    font-size: 50px;
+    text-align: center;
+    text-transform: uppercase;
+    color: green;
+    background-color: greenyellow;
+}
+
+button{
+    background-color: rgb(239, 226, 226);
+    border-radius: 50px;
+    color: blue;
+    display: flex;
+    width: 100px;
+    padding: 10px;
+    margin: 100px;
+    font-size: large;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+h2{
+    margin: 100px;
+    text-transform: uppercase;
+    background-color: greenyellow;
+}
