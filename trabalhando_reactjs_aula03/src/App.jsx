@@ -1,12 +1,11 @@
-import TrabalhandoComImagens2 from "./components/TrabalhandoComImagens2"
-
+import HookMegaSena from "./components/HookMegaSena"
 
 function App() {
 
   
   return (
     <>
-  <TrabalhandoComImagens2/>
+    <HookMegaSena/>
     </>
   )
 }
