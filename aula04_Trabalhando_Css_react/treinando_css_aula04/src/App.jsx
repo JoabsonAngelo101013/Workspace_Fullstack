@@ -1,4 +1,8 @@
-import Exercicio_Css from "./componente/Exercicio_Css"
+
+import Formulario_De_Contato from "./componente/Formulario_De_Contato"
+
+
+
 
 
 
@@ -10,7 +14,7 @@ const App=() => {
   
     <div> 
 
-      <Exercicio_Css/>
+      <Formulario_De_Contato/>
       
       </div>
     

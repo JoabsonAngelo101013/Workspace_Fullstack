@@ -1,12 +1,26 @@
 
-
+/*
 body {
- background-color: #d77d7d;
- font-size: 50px;
-
+ background-color: #d77db9;
+ font-size: 20px;
 }
 
 img {
   border: solid 1px #ccc;
+
 }
 
+button{
+  background-color: #4d79ff;
+  color: #ffffff;
+  border: none;
+  width: 300px;
+  height: 50px;
+}
+
+a {
+  color: #ff4d4d;
+  text-decoration: none;
+}
+
+*/
