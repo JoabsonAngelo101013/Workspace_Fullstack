@@ -52,5 +52,18 @@
       "nome": "Paulo",
       "email": "paulo@gmail.com"
     }
+  ],
+
+  "noticias": [
+    {
+      "id": 1,
+      "titulo": "COOPERE lança edital de submissão de TCCs para a revista Diálogos Científicos",
+      "noticia":"A coordenação de Pesquisa, Extensão e Responsabilidade Social (COOPERE) tornou pública nesta sexta-feira"
+    },
+    {
+      "id": 2,
+      "titulo": "PAI abre chamada para seleção de novos participantes para semestre 2024.1",
+      "noticia": "O Núcleo de Pronto Atendimento Institucional (PAI) abriu inscrições para o processo de seleção de novos participantes no semestre de 2024.1. "
+    }
   ]
 }
