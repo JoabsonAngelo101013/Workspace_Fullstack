@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react';
 
 const VisualizarNoticia = () => {
 
-    const {id} = useParams ()
+    const { id } = useParams ()
 
     const [noticia, setNoticia] = useState({});
 
@@ -16,17 +16,13 @@ const VisualizarNoticia = () => {
             setNoticia(response.data);
         })
         .catch(error => console.error("There was an error!", error));
-    },[]);
+    },[id]);
 
   return (
-    <>
-    <h1>Lista de Noticias</h1>
-    {
-        noticia.map(item => (
-            <a href={`/visualizar-noticia/${item.id}`}> <h2 key={item.titulo} ></h2>{item.noticia}</a>
-        ))
-    }
-    </>
+   <div>
+        <h2>{noticia.titulo}</h2>
+        <p>{noticia.noticia}</p>
+   </div>
   )
 }
 

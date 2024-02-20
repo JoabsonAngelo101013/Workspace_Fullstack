@@ -15,13 +15,15 @@ const Noticias = () => {
     },[]);
     
   return (
-    <div>
-    {alunos.map(item => (
+    <>
+    <h1>Lista das notícias</h1>
+      {
+      noticias.map(item => (     
+      <a href={`/Visualizar-noticia/${item.id}`}> <h2 key={item.id}>{item.titulo}</h2> </a>
       
-      <p key={item.id}>{item.titulo}</p>
-    
-    ))}
-  </div>
+     ))
+     }
+   </>
   )
 }
 

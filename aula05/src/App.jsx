@@ -5,6 +5,7 @@ import AFaculdade from './pages/AFaculdade';
 import DpoLgpd from './pages/DpoLgpd';
 import Noticias from './pages/Noticias';
 import Navbar from './pages/Navbar';
+import VisualizarNoticia from './pages/VisualizarNoticia';
 const App = () => {
 
   return (
@@ -18,7 +19,7 @@ const App = () => {
           <Route path='/A-faculdade' element={<AFaculdade />} />
           <Route path='/Dpo-Lgpd' element={<DpoLgpd />} />
           <Route path='/Noticias' element={<Noticias />} />
-          <Route path='visualiza-noticia/:id' element={<Visualizar-Noticia />} />
+          <Route path='/Visualizar-noticia/:id' element={<VisualizarNoticia />} />
         </Routes>
       </BrowserRouter>
     </div>

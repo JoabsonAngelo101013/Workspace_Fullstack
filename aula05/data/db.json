@@ -57,13 +57,20 @@
   "noticias": [
     {
       "id": 1,
-      "titulo": "COOPERE lança edital de submissão de TCCs para a revista Diálogos Científicos",
-      "noticia":"A coordenação de Pesquisa, Extensão e Responsabilidade Social (COOPERE) tornou pública nesta sexta-feira"
+      "titulo": "Saiba como se localizar no campus do UNIESP",
+      "noticia":"Com o início das aulas para estudantes ingressantes, é comum muita gente confundir sobre os locais de suas aulas no campus do UNIESP. Pensando nisso, criamos um mapa (ao final da matéria) que vai te ajudar a se localizar durante sua jornada acadêmica."
     },
     {
       "id": 2,
-      "titulo": "PAI abre chamada para seleção de novos participantes para semestre 2024.1",
-      "noticia": "O Núcleo de Pronto Atendimento Institucional (PAI) abriu inscrições para o processo de seleção de novos participantes no semestre de 2024.1. "
+      "titulo": "CIS abre agendamento para atendimentos em Odontologia",
+      "noticia": "O serviço é realizado por alunos a partir do 6º período, supervisionados por professores das diversas áreas oferecidas. "
+    },
+
+    {
+      "id": 3,
+      "titulo":"COOPERE lança edital de submissão de TCCs para a revista Diálogos Científicos",
+      "noticia":"O objetivo do edital é incentivar a produção científica entre os estudantes de graduação"
+
     }
   ]
 }
