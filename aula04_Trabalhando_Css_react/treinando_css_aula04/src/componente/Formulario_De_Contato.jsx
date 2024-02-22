@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import style from './Formulario_De_Contato.module.css'
+
 
 const Formulario_De_Contato = () => {
     const [nome, setNome] = useState("");
