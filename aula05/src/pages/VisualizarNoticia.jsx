@@ -15,7 +15,7 @@ const VisualizarNoticia = () => {
         .then(response => {
             setNoticia(response.data);
         })
-        .catch(error => console.error("There was an error!", error));
+        .catch(error => console.error("There was an error!", error))
     },[id]);
 
   return (
