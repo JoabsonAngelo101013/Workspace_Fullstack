@@ -1,25 +1,22 @@
 {
-    "suppliers":[
-        {
-            "id": 1,
-            "nome": "Urbano Ltda",
-            "email": "sac@urbano.com",
-            "cnpj": "38.141.045/0001-59"
-        },
-        {
-            "id": 2,
-            "nome": "Tio Joao",
-            "email": "sac@tiojoao.com",
-            "cnpj": "69.682.549/0001-00"
-        },
-        {
-            
-             "id": 3,
-             "nome": "Cristal",
-             "email": "sac@tCristal.com",
-             "cnpj": "18.775.187/0001-60"
-            
-        }
-    ]
-        
+  "suppliers": [
+    {
+      "id": "1",
+      "name": "Urbano LTDA",
+      "email": "sac@urbano.com",
+      "cnpj": "38.141.045/0001-59"
+    },
+    {
+      "id": "2",
+      "name": "Tio João LTDA",
+      "email": "sac@tiojoao.com",
+      "cnpj": "69.682.549/0001-00"
+    },
+    {
+      "id": "3",
+      "name": "Cristal LTDA",
+      "email": "sac@Cristal.com",
+      "cnpj": "18.775.187/0001-60"
+    }
+  ]
 }
