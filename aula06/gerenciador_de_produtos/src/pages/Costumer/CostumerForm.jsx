@@ -1,34 +1,34 @@
 import React from 'react'
+import axios from '../../api'
 import { useState, useEffect} from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import axios from '../../api'
+
 
 const CostumerForm = () => {
-    const [costumer, setCostumer] = useState({name:'', cpf:'', email:'', zipCode:'', street:'', number:'', neighborhood:'', city:'', state:'', country:''})
+
+    const [costumer, setCostumer] = useState({name:'', cpf:'', email:'', zipcode:'', street:'', number:'', neighborhood:'', city:'', state:'', country:''});
     const navigate = useNavigate()
     const {id} = useParams()
-
     const [cepLoading, setCepLoading] = useState(false)
     
     useEffect(() => {
-       
         if (id) {
             axios.get(`/costumers/${id}`)
             .then(response => {
                 setCostumer(response.data)
             })
             .catch(error => console.error('Erro ao buscar Client!', error))
-        }else {
-            setCostumer({name:'', cpf:'', email:'', zipCode:'', street:'', number:'', neighborhood:'', city:'', state:'', country:''})}
+        } else {
+            setCostumer({name:'', cpf:'', email:'', zipcode:'', street:'', number:'', neighborhood:'', city:'', state:'', country:''})}
     }, [id])
+
     function handleChange(event) {
-        const {name, value} = event.target;
-        setCostumer(prevState => ({...prevState, [name]:value }))
+        const {name, value} = event.target
+        setCostumer(prevState => ({...prevState, [name]: value }))
     }
 
     function handleSubmit(event){
         event.preventDefault()
-
         const method = id ? 'put' : 'post'
         const url = id ? `/costumers/${id}`: '/costumers'
        
@@ -46,15 +46,16 @@ const CostumerForm = () => {
         const cep = event.target.value.replace(/\D/g, '')
         if (cep.length !== 8) {
             alert("CEP tem que ter 8 Digitos!")
-            return;
+            return
         }
         setCepLoading(true)
+
         axios.get(`https://viacep.com.br/ws/${cep}/json/`)
         .then(response => {
             if(response.data.erro){
                 alert("CEP não encontrado")
                 setCepLoading(false)
-                return;
+                return
             }
 
             setCostumer(prevState => ({
@@ -85,20 +86,20 @@ const CostumerForm = () => {
                 <input type="text" className="form-control" id="name" name="name" value={costumer.name} onChange={handleChange} required />
             </div>
             <div className="form-group">
-                <label htmlFor="cpf">CPF do cliente</label>
+                <label htmlFor="cpf">CPF do Cliente</label>
                 <input type="text" className="form-control" id="cpf" name="cpf" value={costumer.cpf} onChange={handleChange} required />
             </div>
             <div className="form-group">
-                <label htmlFor="email">Email do cliente</label>
+                <label htmlFor="email">Email do Cliente</label>
                 <input type="text" className="form-control" id="email" name="email" value={costumer.email} onChange={handleChange} required />
             </div>
             <div className="form-group">
                 <label htmlFor="zipcode">CEP</label>
-                <input type="number" className="form-control" id="zipcode" name="zipcode" value={costumer.zipCode} onChange={handleChange} onBlur={handleCepBlur} required />
+                <input type="text" className="form-control" id="zipcode" name="zipcode" value={costumer.zipcode} onChange={handleChange} onBlur={handleCepBlur} required />
                 {cepLoading && <p>Buscando CEP...</p>}
             </div>
             <div className="form-group">
-                <label htmlFor="street">Rua/logradouro</label>
+                <label htmlFor="street">Rua/Logradouro</label>
                 <input type="text" className="form-control" id="street" name="street" value={costumer.street} onChange={handleChange} required />
             </div>
             <div className="form-group">
@@ -124,6 +125,7 @@ const CostumerForm = () => {
             <button type="submit" className="btn btn-success">{id ? 'Atualizar' : 'Adicionar'}</button>
         </form>
     </div>
+        
 
   )
 }

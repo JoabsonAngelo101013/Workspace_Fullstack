@@ -18,7 +18,6 @@
       "email": "sac@Cristal.com",
       "cnpj": "18.775.187/0001-60"
     }
-      
   ],
   "products": [
     {
@@ -72,7 +71,19 @@
       "city": "João Pessoa",
       "state": "Paraíba",
       "country": "Brasil"
+    },
+    {
+      "name": "jose",
+      "cpf": "123456789-89",
+      "email": "holaki1588@bizatop.com",
+      "zipcode": "58011300",
+      "street": "Rua José Feliciano",
+      "number": "37",
+      "neighborhood": "Trincheiras",
+      "city": "João Pessoa",
+      "state": "PB",
+      "country": "Brasil",
+      "id": 3
     }
-
   ]
 }
