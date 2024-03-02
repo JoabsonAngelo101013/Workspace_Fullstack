@@ -2,15 +2,15 @@
   "suppliers": [
     {
       "id": "1",
-      "name": "Urbano LTDA",
-      "email": "sac@urbano.com",
-      "cnpj": "38.141.045/0001-59"
-    },
-    {
-      "id": "2",
       "name": "Tio João LTDA",
       "email": "sac@tiojoao.com",
       "cnpj": "69.682.549/0001-00"
+    },
+    {
+      "id": "2",
+      "name": "Urban LTDA",
+      "email": "sac@urban.com",
+      "cnpj": "18.775.187/0001-60"
     },
     {
       "id": "3",
@@ -18,5 +18,61 @@
       "email": "sac@Cristal.com",
       "cnpj": "18.775.187/0001-60"
     }
+      
+  ],
+  "products": [
+    {
+      "id": "1",
+      "name": "feijão",
+      "price": "3.00",
+      "supplierId": "1"
+    },
+    {
+      "id": "2",
+      "name": "Arroz",
+      "price": "4.00",
+      "supplierId": "2"
+    },
+    {
+      "id": "3",
+      "name": "Cristal 700ml",
+      "price": "5.00",
+      "supplierId": "3"
+    },
+    {
+      "name": "Pipoca",
+      "price": "10.00",
+      "supplierId": "1",
+      "id": "u2GVenf"
+    }
+  ],
+  "costumers": [
+    {
+      "id": 1,
+      "name": "João Silva 2",
+      "cpf": "123.123.123-12",
+      "email": "joao@gmail.com",
+      "zipcode": "55555-555",
+      "street": "Rua de Teste",
+      "number": "100",
+      "neighborhood": "Mangabeira",
+      "city": "João Pessoa",
+      "state": "Paraíba",
+      "country": "Brasil"
+    },
+    {
+      "id": 2,
+      "name": "Zezinho",
+      "cpf": "123123",
+      "email": "zezin@gmail.com",
+      "zipcode": "58079000",
+      "street": "Rua Josefa Miranda Freire",
+      "number": "105",
+      "neighborhood": "Jardim Oceania",
+      "city": "João Pessoa",
+      "state": "Paraíba",
+      "country": "Brasil"
+    }
+
   ]
 }

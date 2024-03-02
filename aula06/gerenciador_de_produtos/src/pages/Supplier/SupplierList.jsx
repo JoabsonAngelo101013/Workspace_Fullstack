@@ -1,11 +1,15 @@
+/* eslint-disable no-unused-vars */
 import React from 'react'
+import { useState } from 'react'
+import { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
+
 import axios from '../../api'
-import { useState, useEffect } from "react";
-import { useNavigate } from 'react-router-dom';
 
 const SupplierList = () => {
     const [suppliers, setSuppliers] = useState([])
     const navigate = useNavigate()
+   
 
     useEffect(() => {
         axios.get('/suppliers')
@@ -58,7 +62,7 @@ return (
                             <td>{supplier.cnpj}</td>
                             <td>{supplier.email}</td>
                             <td>
-                                <button className='btn btn-sm btn-warning mr-2'>Editar</button>
+                                <button className='btn btn-sm btn-warning mr-2'onClick={() => navigate(`/editar-fornecedores/${supplier.id}`)}>Editar</button>
                                 <button onClick={() => deleteSupplier(supplier.id)} className='btn btn-sm btn-danger mr-2'>Excuir</button>
 
                             </td>
