@@ -4,7 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import axios from '../../api'
 
 const CostumerForm = () => {
-    const [costumer, setCostumer] = useState({name:'', cpf:'', email:'',zipCode:'', street:'',number:'',neighborhood:'',city:'', state:'', country:''})
+    const [costumer, setCostumer] = useState({name:'', cpf:'', email:'', zipCode:'', street:'', number:'', neighborhood:'', city:'', state:'', country:''})
     const navigate = useNavigate()
     const {id} = useParams()
 
@@ -19,7 +19,7 @@ const CostumerForm = () => {
             })
             .catch(error => console.error('Erro ao buscar Client!', error))
         }else {
-            setCostumer({name:'', cpf:'', email:'',zipCode:'', street:'',number:'',neighborhood:'',city:'', state:'', country:''})}
+            setCostumer({name:'', cpf:'', email:'', zipCode:'', street:'', number:'', neighborhood:'', city:'', state:'', country:''})}
     }, [id])
     function handleChange(event) {
         const {name, value} = event.target;
