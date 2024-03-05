@@ -66,13 +66,14 @@
       "email": "zezin@gmail.com",
       "zipcode": "58079000",
       "street": "Rua Josefa Miranda Freire",
-      "number": "105",
+      "number": "1010",
       "neighborhood": "Jardim Oceania",
       "city": "João Pessoa",
       "state": "Paraíba",
       "country": "Brasil"
     },
     {
+      "id": 3,
       "name": "jose",
       "cpf": "123456789-89",
       "email": "holaki1588@bizatop.com",
@@ -82,8 +83,7 @@
       "neighborhood": "Trincheiras",
       "city": "João Pessoa",
       "state": "PB",
-      "country": "Brasil",
-      "id": 3
+      "country": "Brasil"
     }
   ]
 }
