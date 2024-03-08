@@ -34,7 +34,7 @@ const CostumerList = () => {
   return (
     <div className='container mt-5'>
         <h2 className='mb-4'>Lista de Clientes</h2>
-        <button onClick={() => navigate('/add-clientes')} className='btn btn-primary mb-2'>Adicionar Clientes</button>
+        <button onClick={() => navigate('/add-cliente')} className='btn btn-primary mb-2'>Adicionar Clientes</button>
 
         <table className='table'>
             <thead>
@@ -49,6 +49,7 @@ const CostumerList = () => {
                     <th>Cidade</th>
                     <th>Estado</th>
                     <th>País</th>
+                    <th>Ações</th>
                 </tr>
             </thead>
             <tbody>

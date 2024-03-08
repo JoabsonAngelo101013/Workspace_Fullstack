@@ -10,6 +10,8 @@ import ProductList from "./pages/Product/ProductList";
 import ProductForm from "./pages/Product/ProductForm";
 import CostumerForm from "./pages/Costumer/CostumerForm";
 import CostumerList from "./pages/Costumer/CostumerList";
+import Initial from "./pages/Ainitial/Initial";
+
 
 
 
@@ -22,7 +24,7 @@ function App() {
      <Navbar1/>
         <div className="container">
           <Routes>
-            <Route path="/" element={<SupplierList />} />
+            <Route path="/" element={<Initial />} />
             <Route path="/add-fornecedor" element={<SupplierForm/>} />
             <Route path="/listar-fornecedores" element={<SupplierList/>} />
             <Route path="/editar-fornecedores/:id" element={<SupplierForm/>} />

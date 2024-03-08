@@ -42,14 +42,16 @@ body {
 
 .table {
     width: 100%;
-    border-collapse: collapse;
+    height: 10%;
     margin-top: 20px;
 }
 
 .table th, .table td {
-    text-align:  left;
+    width: auto;
+    text-align: left;
     padding: 12px;
     border-bottom: 1px solid #ddd;
+
 }
 
 .table th {
@@ -59,6 +61,7 @@ body {
 
 .table tr:nth-child(even) {
     background-color: #f2f2f2;
+    
 }
 
 .btn {
