@@ -10,7 +10,9 @@ import ProductList from "./pages/Product/ProductList";
 import ProductForm from "./pages/Product/ProductForm";
 import CostumerForm from "./pages/Costumer/CostumerForm";
 import CostumerList from "./pages/Costumer/CostumerList";
+import CostumerDetails from "./pages/Costumer/CostumerDetails";
 import Initial from "./pages/Ainitial/Initial";
+
 
 
 
@@ -33,6 +35,7 @@ function App() {
             <Route path="/editar-produtos/:id" element={<ProductForm/>} />
             <Route path="/add-cliente" element={<CostumerForm/>} />
             <Route path="/listar-clientes" element={<CostumerList/>} />
+            <Route path='/detalhes-cliente/:id' element={<CostumerDetails />} />
             <Route path="/editar-cliente/:id" element={<CostumerForm/>} />
 
           </Routes>
