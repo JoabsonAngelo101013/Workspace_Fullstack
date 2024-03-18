@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React , { useState } from 'react'
 import Modal from 'react-modal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSquareXmark } from '@fortawesome/free-solid-svg-icons';
@@ -19,12 +19,13 @@ const CostumerDetails = () => {
             ariaHideApp={false}
             className="modal-content"
             >
+        
                 <h2>Adicionar nov Usuário</h2>
                 <button onClick={closeModal} className='close'>
                     <FontAwesomeIcon icon={faSquareXmark}/>
                 </button>
                 <div>Sou um Modal</div>
-            </Modal >
+        </Modal >
     </div>
   )
 }

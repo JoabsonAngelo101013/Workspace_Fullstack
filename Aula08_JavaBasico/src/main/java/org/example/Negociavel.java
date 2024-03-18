@@ -1,2 +1,5 @@
-package org.example;public interface Negociavel {
+package org.example;
+
+public interface Negociavel {
+    void negociar();
 }

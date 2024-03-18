@@ -14,9 +14,6 @@ import CostumerDetails from "./pages/Costumer/CostumerDetails";
 import Initial from "./pages/Ainitial/Initial";
 
 
-
-
-
 function App() {
  
 
