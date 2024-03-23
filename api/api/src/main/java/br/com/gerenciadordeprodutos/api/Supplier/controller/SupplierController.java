@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/suppliers")
 public class SupplierController {
@@ -19,4 +21,12 @@ public class SupplierController {
 
         return ResponseEntity.ok(supplierResponse);
     }
+
+    @GetMapping
+    public ResponseEntity<List<SupplierResponse>> getAllSuppliers(){
+        List<SupplierResponse> supplierResponses = supplierService.findAll();
+
+        return ResponseEntity.ok(supplierResponses);
+    }
+
 }

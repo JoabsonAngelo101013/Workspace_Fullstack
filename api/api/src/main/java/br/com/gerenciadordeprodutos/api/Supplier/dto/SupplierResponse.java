@@ -11,6 +11,7 @@ import java.util.UUID;
 public class SupplierResponse {
     private UUID id;
     private String name;
-    private String cnpj;
     private String email;
+    private String cnpj;
+
 }
