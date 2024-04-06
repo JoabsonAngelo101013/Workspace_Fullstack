@@ -12,5 +12,4 @@ public class SupplierRequest {
     private String email;
     @CNPJ(message = "Invalid Cnpj")
     private String cnpj;
-
 }
