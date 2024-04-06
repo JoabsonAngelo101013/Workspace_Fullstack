@@ -5,28 +5,46 @@ import br.com.gerenciadordeprodutos.api.Supplier.dto.SupplierResponse;
 import br.com.gerenciadordeprodutos.api.Supplier.service.SupplierService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/suppliers")
 public class SupplierController {
     @Autowired
     SupplierService supplierService;
-    @PostMapping
-    public ResponseEntity<SupplierResponse> createSupplier(@Valid @RequestBody SupplierRequest supplierRequest){
-        SupplierResponse supplierResponse = supplierService.create(supplierRequest);
 
-        return ResponseEntity.ok(supplierResponse);
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public SupplierResponse createSupplier(@Valid @RequestBody SupplierRequest supplierRequest){
+        return supplierService.create(supplierRequest);
+
     }
 
     @GetMapping
-    public ResponseEntity<List<SupplierResponse>> getAllSuppliers(){
-        List<SupplierResponse> supplierResponses = supplierService.findAll();
-
-        return ResponseEntity.ok(supplierResponses);
+    @ResponseStatus(HttpStatus.OK)
+    public List<SupplierResponse> findAll(){
+        return supplierService.findAll();
     }
 
+    @GetMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public SupplierResponse findById(@PathVariable UUID id){
+        return supplierService.findById(id);
+    }
+
+    @PutMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public SupplierResponse update(@PathVariable UUID id, @Valid @RequestBody SupplierRequest supplierRequest) {
+        return supplierService.update(id, supplierRequest);
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public  void delete(@PathVariable UUID id){
+        supplierService.deleteById(id);
+    }
 }
