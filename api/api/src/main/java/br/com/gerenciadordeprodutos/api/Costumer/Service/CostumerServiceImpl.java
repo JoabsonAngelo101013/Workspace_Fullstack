@@ -1,13 +1,16 @@
 package br.com.gerenciadordeprodutos.api.Costumer.Service;
 
+import br.com.gerenciadordeprodutos.api.Costumer.dto.CostumerAddressResponse;
 import br.com.gerenciadordeprodutos.api.Costumer.dto.CostumerRequest;
 import br.com.gerenciadordeprodutos.api.Costumer.dto.CostumerResponse;
 import br.com.gerenciadordeprodutos.api.Costumer.model.Costumer;
+import br.com.gerenciadordeprodutos.api.Costumer.model.CostumerAddress;
 import br.com.gerenciadordeprodutos.api.Costumer.repository.CostumerRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -16,54 +19,71 @@ import java.util.stream.Collectors;
 public class CostumerServiceImpl implements CostumerService {
     @Autowired
     CostumerRepository costumerRepository;
+
     @Override
-    public CostumerResponse create(@Valid CostumerRequest costumerRequest) {
-        Costumer costumer = costumerRepository.save(new Costumer(
+    public CostumerResponse create(CostumerRequest costumerRequest) {
+        Costumer costumer = new Costumer(
                 UUID.randomUUID(),
                 costumerRequest.getName(),
-                costumerRequest.getEmail(),
                 costumerRequest.getCpf(),
-                costumerRequest.getCep(),
-                costumerRequest.getRua(),
-                costumerRequest.getNumero(),
-                costumerRequest.getBairro(),
-                costumerRequest.getCidade(),
-                costumerRequest.getEstado(),
-                costumerRequest.getPais()
+                costumerRequest.getEmail(),
+                null,
+                LocalDateTime.now()
+        );
 
-        ));
+        CostumerAddress costumerAddress = new CostumerAddress(
+                UUID.randomUUID(),
+                costumerRequest.getCostumerAddressRequest().getStreet(),
+                costumerRequest.getCostumerAddressRequest().getNumber(),
+                costumerRequest.getCostumerAddressRequest().getNeighborhood(),
+                costumerRequest.getCostumerAddressRequest().getCity(),
+                costumerRequest.getCostumerAddressRequest().getState(),
+                costumerRequest.getCostumerAddressRequest().getCountry(),
+                costumerRequest.getCostumerAddressRequest().getZipCode(),
+                costumer
+        );
+
+        costumer.setAddress(costumerAddress);
+
+        Costumer savedCostumer = costumerRepository.save(costumer);
+
         return new CostumerResponse(
-                costumer.getId(),
-                costumer.getName(),
-                costumer.getCpf(),
-                costumer.getEmail(),
-                costumer.getCep(),
-                costumer.getRua(),
-                costumer.getNumero(),
-                costumer.getBairro(),
-                costumer.getCidade(),
-                costumer.getEstado(),
-                costumer.getPais()
+                savedCostumer.getId(),
+                savedCostumer.getName(),
+                savedCostumer.getCpf(),
+                savedCostumer.getEmail(),
+                new CostumerAddressResponse(
+                        savedCostumer.getAddress().getStreet(),
+                        savedCostumer.getAddress().getNumber(),
+                        savedCostumer.getAddress().getNeighborhood(),
+                        savedCostumer.getAddress().getCity(),
+                        savedCostumer.getAddress().getState(),
+                        savedCostumer.getAddress().getCountry(),
+                        savedCostumer.getAddress().getZipCode()
+                ),
+                savedCostumer.getCreatedAt()
         );
     }
 
     @Override
     public List<CostumerResponse> findAll() {
-        return costumerRepository.findAll().stream()
-                .map(costumer -> new CostumerResponse(
-                        costumer.getId(),
-                        costumer.getName(),
-                        costumer.getCpf(),
-                        costumer.getEmail(),
-                        costumer.getCep(),
-                        costumer.getRua(),
-                        costumer.getNumero(),
-                        costumer.getBairro(),
-                        costumer.getCidade(),
-                        costumer.getEstado(),
-                        costumer.getPais()
-                ))
-                .collect(Collectors.toList());
+        return List.of();
+    }
+
+
+    @Override
+    public CostumerResponse findById(UUID id) {
+        return null;
+    }
+
+    @Override
+    public CostumerResponse update(UUID id, CostumerRequest costumerRequest) {
+        return null;
+    }
+
+    @Override
+    public void deleteById(UUID id) {
+
     }
 
 }

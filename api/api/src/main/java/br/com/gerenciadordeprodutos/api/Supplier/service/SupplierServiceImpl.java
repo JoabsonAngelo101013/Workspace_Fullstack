@@ -17,25 +17,27 @@ import java.util.stream.Collectors;
 
 @Service
 public class SupplierServiceImpl implements SupplierService {
+
     @Autowired
     SupplierRepository supplierRepository;
 
     @Override
     public SupplierResponse create(@Valid SupplierRequest supplierRequest) {
         Supplier supplier = supplierRepository.save(new Supplier(
-           UUID.randomUUID(),
-           supplierRequest.getName(),
-           supplierRequest.getEmail(),
-           supplierRequest.getCnpj(),
+                UUID.randomUUID(),
+                supplierRequest.getName(),
+                supplierRequest.getEmail(),
+                supplierRequest.getCnpj(),
                 LocalDateTime.now()
         ));
-        return new SupplierResponse(supplier.getId(), supplier.getName(),supplier.getCnpj(),supplier.getEmail(),supplier.getCreatedAt());
+
+        return new SupplierResponse(supplier.getId(), supplier.getName(), supplier.getEmail(), supplier.getCnpj(), supplier.getCreatedAt());
     }
 
     @Override
     public List<SupplierResponse> findAll() {
         return supplierRepository.findAll().stream()
-                .map(supplier -> new SupplierResponse(
+                .map(supplier ->  new SupplierResponse(
                         supplier.getId(),
                         supplier.getName(),
                         supplier.getEmail(),
@@ -54,7 +56,7 @@ public class SupplierServiceImpl implements SupplierService {
                         supplier.getEmail(),
                         supplier.getCnpj(),
                         supplier.getCreatedAt()
-                )).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND,"Supplier not found with id: "+id));
+                )).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Supplier not found with id: "+id));
     }
 
     @Override
@@ -72,16 +74,15 @@ public class SupplierServiceImpl implements SupplierService {
                             supplier.getCnpj(),
                             supplier.getCreatedAt()
                     );
-                }).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Supplier not found with id "+id));
+                }).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Supplier not found with ID " + id));
     }
 
     @Override
     public void deleteById(UUID id) {
-        if (supplierRepository.existsById(id)){
+        if (supplierRepository.existsById(id)) {
             supplierRepository.deleteById(id);
-        }else {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Supplier not found with id "+id);
+        } else {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Supplier not found with id: "+ id);
         }
     }
-
 }

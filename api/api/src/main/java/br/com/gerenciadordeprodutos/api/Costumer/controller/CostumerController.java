@@ -17,17 +17,10 @@ public class CostumerController {
     CostumerService costumerService;
 
     @PostMapping
-    public ResponseEntity<CostumerResponse> createCostumer(@Valid @RequestBody CostumerRequest costumerRequest) {
+    public CostumerResponse create (@Valid @RequestBody CostumerRequest costumerRequest) {
         CostumerResponse costumerResponse = costumerService.create(costumerRequest);
 
-        return ResponseEntity.ok(costumerResponse);
+        return costumerService.create(costumerRequest);
     }
-    @GetMapping
-    public ResponseEntity<List<CostumerResponse>> getAllCostumer(){
-        List<CostumerResponse> costumerResponses = costumerService.findAll();
-
-        return ResponseEntity.ok(costumerResponses);
-    }
-
 
 }
