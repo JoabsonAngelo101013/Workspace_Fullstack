@@ -1,4 +1,4 @@
-package br.com.gerenciadordeprodutos.api.Supplier.controller;
+package br.com.gerenciadordeprodutos.api.product.controller;
 
 import br.com.gerenciadordeprodutos.api.Supplier.dto.SupplierRequest;
 import br.com.gerenciadordeprodutos.api.Supplier.dto.SupplierResponse;

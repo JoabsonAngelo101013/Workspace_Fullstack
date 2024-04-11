@@ -31,7 +31,13 @@ public class SupplierServiceImpl implements SupplierService {
                 LocalDateTime.now()
         ));
 
-        return new SupplierResponse(supplier.getId(), supplier.getName(), supplier.getEmail(), supplier.getCnpj(), supplier.getCreatedAt());
+        return new SupplierResponse(
+                supplier.getId(),
+                supplier.getName(),
+                supplier.getEmail(),
+                supplier.getCnpj(),
+                supplier.getCreatedAt()
+        );
     }
 
     @Override

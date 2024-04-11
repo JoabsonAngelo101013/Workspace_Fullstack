@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.GenericGenerator;
+
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -26,7 +26,5 @@ public class Costumer implements Serializable {
     private CostumerAddress address;
     @Column(name = "created_at")
     private LocalDateTime createdAt;
-
-
 
 }
