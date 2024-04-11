@@ -68,8 +68,18 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-
-
+    public ProductResponse findById(UUID id) {
+        return productRepository.findById(id).map(product -> new ProductResponse(
+                        product.getId(),
+                        product.getName(),
+                        product.getPrice(),
+                        new ProductSupplierDetails(
+                                product.getSupplier().getId(),
+                                product.getSupplier().getName()),
+                        product.getCreatedAt()
+                ))
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Product not Found with id " + id));
+    }
 
     @Override
     public ProductResponse update(UUID id, ProductRequest productRequest) {
