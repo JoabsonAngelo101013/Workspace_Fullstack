@@ -67,7 +67,7 @@ public class CostumerServiceImpl implements CostumerService {
 
     @Override
     public List<CostumerResponse> findAll() {
-        return List.of();
+        return null;
     }
 
 

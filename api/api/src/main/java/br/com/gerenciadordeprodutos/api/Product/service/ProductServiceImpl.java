@@ -30,7 +30,8 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public ProductResponse create(ProductRequest productRequest) {
         Supplier supplier = supplierRepository.findById(productRequest.getSupplierId())
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Supplier not Found with id " + productRequest.getSupplierId()));
+                .orElseThrow(() -> new ResponseStatusException
+                        (HttpStatus.NOT_FOUND, "Supplier not Found with id " + productRequest.getSupplierId()));
 
 
         Product product = productRepository.save(new Product(
@@ -55,7 +56,8 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public List<ProductResponse> findAll() {
-        return productRepository.findAll().stream().map(product -> new ProductResponse(
+        return productRepository.findAll().stream()
+                .map(product -> new ProductResponse(
                         product.getId(),
                         product.getName(),
                         product.getPrice(),
@@ -69,7 +71,8 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public ProductResponse findById(UUID id) {
-        return productRepository.findById(id).map(product -> new ProductResponse(
+        return productRepository.findById(id)
+                .map(product -> new ProductResponse(
                         product.getId(),
                         product.getName(),
                         product.getPrice(),
@@ -78,16 +81,24 @@ public class ProductServiceImpl implements ProductService {
                                 product.getSupplier().getName()),
                         product.getCreatedAt()
                 ))
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Product not Found with id " + id));
+                .orElseThrow(() -> new ResponseStatusException
+                        (HttpStatus.NOT_FOUND, "Product not Found with id " + id));
     }
 
     @Override
     public ProductResponse update(UUID id, ProductRequest productRequest) {
+
+        Supplier supplier = supplierRepository.findById(productRequest.getSupplierId())
+                .orElseThrow(()-> new ResponseStatusException
+                        (HttpStatus.NOT_FOUND, "Supplier not found with id " + productRequest.getSupplierId()));
+
+        
         return productRepository.findById(id)
                 .map(product -> {
                     product.setName(productRequest.getName());
                     product.setPrice(productRequest.getPrice());
-                    product.setSupplier(productRequest.getSupplierId(UUID, id));
+                    product.setSupplier(supplier);
+                    product.setCreatedAt(product.getCreatedAt());
 
                     productRepository.save(product);
 
@@ -96,11 +107,12 @@ public class ProductServiceImpl implements ProductService {
                             product.getName(),
                             product.getPrice(),
                             new ProductSupplierDetails(
-                                    product.getSupplier().getId(),
-                                    product.getSupplier().getName()),
+                                    supplier.getId(),
+                                    supplier.getName()),
                             product.getCreatedAt()
                     );
-                }).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Product not found with ID " + id));
+                }).orElseThrow(() -> new ResponseStatusException
+                        (HttpStatus.NOT_FOUND, "Product not found with ID " + id));
     }
 
     @Override
@@ -108,7 +120,8 @@ public class ProductServiceImpl implements ProductService {
         if (productRepository.existsById(id)) {
             productRepository.deleteById(id);
         } else {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Product not found with id: " + id);
+            throw new ResponseStatusException
+                    (HttpStatus.NOT_FOUND, "Product not found with id: " + id);
         }
     }
 }
