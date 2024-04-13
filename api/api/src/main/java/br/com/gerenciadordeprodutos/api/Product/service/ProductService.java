@@ -1,7 +1,7 @@
 package br.com.gerenciadordeprodutos.api.Product.service;
 
-import br.com.gerenciadordeprodutos.api.Product.DTO.ProductRequest;
-import br.com.gerenciadordeprodutos.api.Product.DTO.ProductResponse;
+import br.com.gerenciadordeprodutos.api.Product.dtos.ProductRequest;
+import br.com.gerenciadordeprodutos.api.Product.dtos.ProductResponse;
 
 import jakarta.validation.Valid;
 

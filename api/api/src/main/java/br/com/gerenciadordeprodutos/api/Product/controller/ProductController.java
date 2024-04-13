@@ -1,7 +1,7 @@
 package br.com.gerenciadordeprodutos.api.Product.controller;
 
-import br.com.gerenciadordeprodutos.api.Product.DTO.ProductRequest;
-import br.com.gerenciadordeprodutos.api.Product.DTO.ProductResponse;
+import br.com.gerenciadordeprodutos.api.Product.dtos.ProductRequest;
+import br.com.gerenciadordeprodutos.api.Product.dtos.ProductResponse;
 import br.com.gerenciadordeprodutos.api.Product.service.ProductService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;

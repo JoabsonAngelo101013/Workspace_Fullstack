@@ -1,4 +1,4 @@
-package br.com.gerenciadordeprodutos.api.Product.DTO;
+package br.com.gerenciadordeprodutos.api.Product.dtos;
 
 import lombok.Data;
 

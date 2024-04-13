@@ -1,9 +1,9 @@
 package br.com.gerenciadordeprodutos.api.Product.service;
-import br.com.gerenciadordeprodutos.api.Product.DTO.ProductSupplierDetails;
+import br.com.gerenciadordeprodutos.api.Product.dtos.ProductSupplierDetails;
 import br.com.gerenciadordeprodutos.api.Product.model.Product;
 import br.com.gerenciadordeprodutos.api.Supplier.model.Supplier;
-import br.com.gerenciadordeprodutos.api.Product.DTO.ProductRequest;
-import br.com.gerenciadordeprodutos.api.Product.DTO.ProductResponse;
+import br.com.gerenciadordeprodutos.api.Product.dtos.ProductRequest;
+import br.com.gerenciadordeprodutos.api.Product.dtos.ProductResponse;
 import br.com.gerenciadordeprodutos.api.Product.repository.ProductRepository;
 import br.com.gerenciadordeprodutos.api.Supplier.repository.SupplierRepository;
 import org.springframework.beans.factory.annotation.Autowired;
