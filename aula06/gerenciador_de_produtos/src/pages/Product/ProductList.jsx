@@ -37,7 +37,7 @@ const ProductList = () => {
   return (
     <div className='container mt-5'>
         <h2 className='mb-4'>Lista de Produtos</h2>
-        <button onClick={() => navigate('/add-produtos')} className='btn btn-primary mb-2'>Adicionar Produto</button>
+        <button onClick={() => navigate('/add-produto')} className='btn btn-primary mb-2'>Adicionar Produto</button>
         <table className='table'>
             <thead>
                 <tr>
