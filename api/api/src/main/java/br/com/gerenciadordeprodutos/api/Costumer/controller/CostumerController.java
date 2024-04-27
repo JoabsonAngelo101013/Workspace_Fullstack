@@ -18,11 +18,10 @@ public class CostumerController {
     CostumerService costumerService;
 
     @PostMapping
-    public CostumerResponse create (@Valid @RequestBody CostumerRequest costumerRequest) {
-        CostumerResponse costumerResponse = costumerService.create(costumerRequest);
+    public CostumerResponse create(@Valid @RequestBody CostumerRequest costumerRequest) {
         return costumerService.create(costumerRequest);
     }
-    @GetMapping("/{id}")
+    @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public List<CostumerResponse> findAll(){
         return costumerService.findAll();

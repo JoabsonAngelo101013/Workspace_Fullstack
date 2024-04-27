@@ -4,5 +4,7 @@ public enum RoleName {
 
     ROLE_ADMINISTRATOR,
 
-    ROLE_MANAGER;
+    ROLE_MANAGER,
+
+    ROLE_EMPLOYEE;
 }

@@ -7,6 +7,7 @@ import axios from '../../api'
 
 const SupplierForm = () => {
     const [supplier, setSupplier] = useState({ name:'', cnpj:'', email:''})
+    const [errorMessage, setErrorMessage] = useState('')
     const navigate = useNavigate()
     const {id} = useParams()
 
@@ -16,7 +17,10 @@ const SupplierForm = () => {
             .then(response => {
                 setSupplier(response.data)
             })
-            .catch(error => console.error('Erro ao buscar fornecedor!', error))
+            .catch(error =>{
+                console.error('Erro ao buscar fornecedor!', error)
+                handleErrors(error)
+            })
         }else {
             setSupplier({ name:'', cnpj:'', email:''})}
     }, [id])
@@ -38,7 +42,22 @@ const SupplierForm = () => {
            alert(`Fornecedor ${id ? 'atualizado' : 'adicionado'} com sucesso!`)
             navigate("/listar-fornecedores")
         })
-        .catch(error => console.error("There was an error!", error))
+        .catch(error =>{
+            console.error("There was an error!", error)
+            handleErrors(error)
+        })
+    }
+
+    function handleErrors(error){
+        if(error.response){
+            if(error.response.status === 400){
+                if(Array.isArray(error.response.data)){
+                    setErrorMessage(error.response.data.join(', '))
+                }else{
+                    setErrorMessage(error.response.data.message || 'Ocorreu um error desconhecido')
+                }
+            }
+        }
     }
     
 
@@ -46,6 +65,11 @@ const SupplierForm = () => {
   return (
     <div className='container mt-5'>
         <h2>{id ? 'Editar Fornecedor' : 'Adicionar Fornecedor'}</h2>
+        {errorMessage && (
+            <div className="alert alert-danger" role="alert">
+                {errorMessage}
+            </div>
+        )}
         <form onSubmit={handleSubmit}>
             <div className='form-group'>
                 <label htmlFor="name">Nome do Fornecedor:</label>

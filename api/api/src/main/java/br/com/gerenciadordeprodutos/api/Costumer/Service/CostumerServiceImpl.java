@@ -6,7 +6,6 @@ import br.com.gerenciadordeprodutos.api.Costumer.dto.CostumerResponse;
 import br.com.gerenciadordeprodutos.api.Costumer.model.Costumer;
 import br.com.gerenciadordeprodutos.api.Costumer.model.CostumerAddress;
 import br.com.gerenciadordeprodutos.api.Costumer.repository.CostumerRepository;
-import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -67,28 +66,28 @@ public class CostumerServiceImpl implements CostumerService {
         );
     }
 
+
     @Override
     public List<CostumerResponse> findAll() {
-        return costumerRepository.findAll().stream().map(costumer-> new CostumerResponse(
-                costumer.getId(),
-                costumer.getName(),
-                costumer.getCpf(),
-                costumer.getEmail(),
-                new CostumerAddressResponse(
-                        costumer.getAddress().getStreet(),
-                        costumer.getAddress().getNumber(),
-                        costumer.getAddress().getNeighborhood(),
-                        costumer.getAddress().getCity(),
-                        costumer.getAddress().getState(),
-                        costumer.getAddress().getCountry(),
-                        costumer.getAddress().getZipCode()
-                ),
-                costumer.getCreatedAt()
+        return costumerRepository.findAll().stream()
+                .map(costumer -> new CostumerResponse(
+                        costumer.getId(),
+                        costumer.getName(),
+                        costumer.getCpf(),
+                        costumer.getEmail(),
+                        new CostumerAddressResponse(
+                                costumer.getAddress().getStreet(),
+                                costumer.getAddress().getNumber(),
+                                costumer.getAddress().getNeighborhood(),
+                                costumer.getAddress().getCity(),
+                                costumer.getAddress().getState(),
+                                costumer.getAddress().getCountry(),
+                                costumer.getAddress().getZipCode()
+                        ),
+                        costumer.getCreatedAt()
                 ))
                 .collect(Collectors.toList());
-
     }
-
 
     @Override
     public CostumerResponse findById(UUID id) {
@@ -113,11 +112,51 @@ public class CostumerServiceImpl implements CostumerService {
 
     @Override
     public CostumerResponse update(UUID id, CostumerRequest costumerRequest) {
-        return costumerRepository.findById(id).map(costumer -> {
-            costumer.setName(costumerRequest.getName());
-            costumer.setCpf(costumerRequest.getCpf());
-            costumer.setEmail(costumerRequest.getEmail());
-        });
+
+
+        return costumerRepository.findById(id)
+                .map(costumer -> {
+                    costumer.setName(costumerRequest.getName());
+                    costumer.setCpf(costumerRequest.getCpf());
+                    costumer.setEmail(costumerRequest.getEmail());
+                    costumer.setCreatedAt(costumer.getCreatedAt());
+
+                    costumerRepository.save(costumer);
+
+
+            
+
+                    CostumerAddress costumerAddress = costumer.getAddress();
+
+                            costumerAddress.setStreet(costumerRequest.getCostumerAddressRequest().getStreet());
+                            costumerAddress.setNumber(costumerRequest.getCostumerAddressRequest().getNumber());
+                            costumerAddress.setNeighborhood(costumerRequest.getCostumerAddressRequest().getNeighborhood());
+                            costumerAddress.setCity(costumerRequest.getCostumerAddressRequest().getCity());
+                            costumerAddress.setState(costumerRequest.getCostumerAddressRequest().getState());
+                            costumerAddress.setCountry(costumerRequest.getCostumerAddressRequest().getCountry());
+                            costumerAddress.setZipCode(costumerRequest.getCostumerAddressRequest().getZipCode());
+                    costumer.setAddress(costumerAddress);
+                    
+
+
+                    return new CostumerResponse (
+                    costumer.getId(),
+                    costumer.getName(),
+                    costumer.getCpf(),
+                    costumer.getEmail(),
+                            new CostumerAddressResponse(
+                                    costumer.getAddress().getStreet(),
+                                    costumer.getAddress().getNumber(),
+                                    costumer.getAddress().getNeighborhood(),
+                                    costumer.getAddress().getCity(),
+                                    costumer.getAddress().getState(),
+                                    costumer.getAddress().getCountry(),
+                                    costumer.getAddress().getZipCode()),
+                            costumer.getCreatedAt());
+
+                }).orElseThrow(() -> new ResponseStatusException
+                        (HttpStatus.NOT_FOUND, "Costumer not found with ID " + id));
+
     }
 
     @Override

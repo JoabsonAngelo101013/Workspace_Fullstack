@@ -1,8 +1,9 @@
-package br.com.gerenciadordeprodutos.api.product.controller;
+package br.com.gerenciadordeprodutos.api.Supplier.controller;
 
 import br.com.gerenciadordeprodutos.api.Supplier.dto.SupplierRequest;
 import br.com.gerenciadordeprodutos.api.Supplier.dto.SupplierResponse;
 import br.com.gerenciadordeprodutos.api.Supplier.service.SupplierService;
+import jakarta.annotation.security.RolesAllowed;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,6 +14,7 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/suppliers")
+@RolesAllowed({"ROLE_ADMINISTRATOR","ROLE_MANANGER"})
 public class SupplierController {
     @Autowired
     SupplierService supplierService;

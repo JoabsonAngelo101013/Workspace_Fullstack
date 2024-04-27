@@ -7,10 +7,10 @@ import org.hibernate.validator.constraints.br.CNPJ;
 
 @Getter
 public class SupplierRequest {
-    @NotBlank(message = "Name is mandatory")
+    @NotBlank(message = "Nome é obrigatório")
     private String name;
-    @Email(message = "Invalid Email Address")
+    @Email(message = "Email invalido")
     private String email;
-    @CNPJ(message = "Invalid Cnpj")
+    @CNPJ(message = "Cnpj invalido")
     private String cnpj;
 }
