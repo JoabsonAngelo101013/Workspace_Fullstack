@@ -12,5 +12,5 @@ public class CostumerAddressRequest {
     private String City;
     private String state;
     private String country;
-    private String ZipCode;
+    private String zipCode;
 }

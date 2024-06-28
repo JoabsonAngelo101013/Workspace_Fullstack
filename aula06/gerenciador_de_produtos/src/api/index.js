@@ -2,7 +2,7 @@ import axios from 'axios';
 
 
 const api = axios.create({
-  baseURL: 'http://localhost:8080/' // Ajuste conforme necessário
+  baseURL: 'http://localhost:8080/' // Ajuste conforme necessário, tambem é usada para configurar o base envairoment do insomnia
 });
 
 api.interceptors.request.use(config => {

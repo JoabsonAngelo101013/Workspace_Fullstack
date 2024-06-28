@@ -6,6 +6,7 @@ import br.com.gerenciadordeprodutos.api.Costumer.dto.CostumerResponse;
 import br.com.gerenciadordeprodutos.api.Costumer.model.Costumer;
 import br.com.gerenciadordeprodutos.api.Costumer.model.CostumerAddress;
 import br.com.gerenciadordeprodutos.api.Costumer.repository.CostumerRepository;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -31,7 +32,7 @@ public class CostumerServiceImpl implements CostumerService {
                 null,
                 LocalDateTime.now()
         );
-
+//foi corrigido o getAddress por getCostumerAddressRequest, pois o getAddress retornava nulo
         CostumerAddress costumerAddress = new CostumerAddress(
                 UUID.randomUUID(),
                 costumerRequest.getCostumerAddressRequest().getStreet(),
@@ -121,12 +122,9 @@ public class CostumerServiceImpl implements CostumerService {
                     costumer.setEmail(costumerRequest.getEmail());
                     costumer.setCreatedAt(costumer.getCreatedAt());
 
-                    costumerRepository.save(costumer);
 
 
-            
-
-                    CostumerAddress costumerAddress = costumer.getAddress();
+                    CostumerAddress costumerAddress = costumer.getAddress();    //foi corrigido o getAddress por getCostumerAddressRequest, pois o getAddress retornava nulo
 
                             costumerAddress.setStreet(costumerRequest.getCostumerAddressRequest().getStreet());
                             costumerAddress.setNumber(costumerRequest.getCostumerAddressRequest().getNumber());
@@ -136,6 +134,8 @@ public class CostumerServiceImpl implements CostumerService {
                             costumerAddress.setCountry(costumerRequest.getCostumerAddressRequest().getCountry());
                             costumerAddress.setZipCode(costumerRequest.getCostumerAddressRequest().getZipCode());
                     costumer.setAddress(costumerAddress);
+
+                    costumerRepository.save(costumer);
                     
 
 

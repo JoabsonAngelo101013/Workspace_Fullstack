@@ -2,6 +2,7 @@ package br.com.gerenciadordeprodutos.api.Costumer.dto;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
@@ -18,6 +19,7 @@ public class CostumerRequest {
     private String cpf;
     @Email(message = "Invalid email")
     private String email;
+    @NotNull(message = "Address is mandatory")
    private CostumerAddressRequest costumerAddressRequest;
     
 

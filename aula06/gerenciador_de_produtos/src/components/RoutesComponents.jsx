@@ -22,6 +22,7 @@ const RoutesComponent = () => {
       <Route path="/editar-produto/:id" element={<PrivateRoute element={ProductForm} />} />
       <Route path="/add-cliente" element={<PrivateRoute element={CostumerForm} />} />
       <Route path="/listar-clientes" element={<PrivateRoute element={CostumerList}/>} />
+      <Route path="/editar-cliente/:id" element={<PrivateRoute element={CostumerForm}/>}/>
       <Route path="/login" element={<Login />} />
       <Route path="/logout" element={<PrivateRoute element={Logout}/>} />
     </Routes>

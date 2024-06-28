@@ -18,4 +18,4 @@ public class SwaggerConfig {
                 .build();
     }
 }
-//http://localhost:8080/swagger-ui/index.html#/ "URL PARA USAR NO NAVEGADO USANDO O SWAGGER"
+//http://localhost:8080/swagger-ui/index.html#/ "URL PARA USAR NO NAVEGADO USANDO O SWAGGER e verificar a documentação"

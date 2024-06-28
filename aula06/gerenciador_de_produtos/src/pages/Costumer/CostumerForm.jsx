@@ -13,7 +13,7 @@ const CostumerForm = () => {
 
     useEffect(() => {
         if (id) {
-            axios.get(`/costumers/${id}`)
+            axios.get(`/costumer/${id}`)
             .then(response => {
                 setCostumer(response.data)
             })
